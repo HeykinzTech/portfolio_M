@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+
+{% block title %} search {% endblock %}
+{% block content %}
+ 
+<div class="blog-item bg-light rounded overflow-hidden">
+    <div class="blog-img position-relative overflow-hidden">
+  <h4> search : {{ query }}</h4>
+  
+  {% for result in results %}
+    
+    <img class="img-fluid" src="{{result.header_image.url}}" alt="">
+    <h4 class="mb-3">{{ result.title}}</h4>
+    <p>{{ result.intro }}</p>
+    <a class="text-uppercase" href="{% url 'detail' result.slug %}">Read More <i class="bi bi-arrow-right"></i></a>
+    {% empty %}
+    <h4> query match none....</h4>
+    {% endfor %}
+</div>
+{% endblock %}
+
+                                   
+                                
+                             
