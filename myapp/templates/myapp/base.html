@@ -58,6 +58,8 @@
         
 
     <!-- Navbar & Carousel Start -->
+
+    {% block header %}
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
             <a href="{% url 'home' %}" class="navbar-brand p-0">
@@ -87,6 +89,7 @@
                             <a href="{% url 'testimonial' %}" class="dropdown-item">Testimonial</a>
                             <a href="{% url 'story' %}" class="dropdown-item"> Our story </a>
                             <a href="{% url 'career' %}" class="dropdown-item"> Career </a>
+                            <a href="{% url 'feature' %}" class="dropdown-item"> feature </a>
                         </div>
                     </div>
                 </div>
@@ -135,7 +138,7 @@
         </div>
     </div>
     <!-- Navbar & Carousel End -->
-
+{% endblock %}
 
 <!-- Full Screen Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1">

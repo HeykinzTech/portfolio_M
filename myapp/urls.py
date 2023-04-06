@@ -21,6 +21,6 @@ urlpatterns = [
     path("career/", views.career, name="career"),
     
     path("detail/<slug:slug>/",views.detail, name="detail"),
-    # path("inherit/",views.inherit, name="inherit"),
+    path("feature/",views.feature, name="feature"),
 
 ] #+ static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)

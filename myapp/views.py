@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render,get_list_or_404,redirect
-from .models import Post,Category,Comment,Member
+from .models import Post,Category,Comment,Member, Testimonial
 from django.core.mail import send_mail,BadHeaderError
 
 # categories = Category.objects.filter(status = Category.ACTIVE ).get(slug= category_slug)
@@ -9,7 +9,8 @@ from django.core.mail import send_mail,BadHeaderError
 def index(request):
     post = Post.objects.all()
     slice = post[:3]
-    return render(request,"myapp/index.html",{'posts': slice})
+    testimonial = Testimonial.objects.all()
+    return render(request,"myapp/index.html",{'posts': slice,'testimonials':testimonial})
 
 def about(request):
     return render(request,"myapp/about.html")
@@ -48,11 +49,11 @@ def team(request):
     return render(request,"myapp/team.html",{'members': member})
 
 def testimonial(request):
-
-    return render(request,"myapp/testimonial.html",{})
+    testimonial = Testimonial.objects.all()
+    return render(request,"myapp/testimonial.html",{'testimonial': testimonial})
 
 def blog(request):
-    # post = Post.objects.all()
+    post = Post.objects.all()
     post = Post.objects.filter(status= Post.ACTIVE)
     
     return render(request,"myapp/blog.html",{"Posts":post})
@@ -89,3 +90,8 @@ def story(request):
 
 def career(request):
     return render(request,'myapp/career.html',{})
+
+
+
+def feature(request):
+    return render(request,'myapp/feature.html',{})
