@@ -46,10 +46,10 @@
 <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
     <div class="row py-5">
         <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-            <h1 class="display-4 text-white animated zoomIn">Our Team /h1>
+            <h1 class="display-4 text-white animated zoomIn">Our Team </h1>
             <a href="{% url 'home' %}" class="h5 text-white">Home</a>
             <i class="far fa-circle text-white px-2"></i>
-            <a href="{% url 'team' %}" class="h5 text-white">Team/a>
+            <a href="{% url 'team' %}" class="h5 text-white">Team </a>
         </div>
     </div>
 </div>
@@ -73,19 +73,19 @@
             <div class="row g-5">
                 {% for member in members %}
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                   <p> {{member.profile.url}}</p>
+                  
                     <div class="team-item bg-light rounded overflow-hidden">
                         <div class="team-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="{{member.profile}}" alt="">
+                            <img class="img-fluid w-100" src="{{member.profile_picture.url}}" alt="">
                             <div class="team-social">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.twitter}}"><i class="fab fa-twitter fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.facebook}}"><i class="fab fa-facebook-f fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.instagram}}"><i class="fab fa-instagram fw-normal"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.linkedin}}"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.twitter.url}}"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.facebook.url}}"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.instagram.url}}"><i class="fab fa-instagram fw-normal"></i></a>
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{member.linkedin.url}}"><i class="fab fa-linkedin-in fw-normal"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <h4 class="text-primary">{{member.first_name}} - {{member.last_name}}</h4>
+                            <h4 class="text-primary">{{member.first_Name}}  {{member.last_Name}}</h4>
                             <p class="text-uppercase m-0">{{member.position}}</p>
                         </div>
                     </div>

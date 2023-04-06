@@ -15,6 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
+                
                 <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
                 <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                 <a href="{% url 'service' %}" class="nav-item nav-link">Services</a>
@@ -46,10 +47,10 @@
 <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
     <div class="row py-5">
         <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-            <h1 class="display-4 text-white animated zoomIn">About Us</h1>
-            <a href="" class="h5 text-white">Home</a>
+            <h1 class="display-4 text-white animated zoomIn">{{ post.title}}</h1>
+            <a href="{% url 'home' %}" class="h5 text-white">Home</a>
             <i class="far fa-circle text-white px-2"></i>
-            <a href="" class="h5 text-white">About</a>
+            <!-- <a href="" class="h5 text-white">About</a> -->
         </div>
     </div>
 </div>
@@ -168,11 +169,12 @@
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="mb-0">Recent Post</h3>
                         </div>
+                        {% for post in recent_posts %}
                         <div class="d-flex rounded overflow-hidden mb-3">
-                            <img class="img-fluid" src="img/blog-1.jpg" style="width: 100px; height: 100px; object-fit: cover;" alt="">
-                            <a href="" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0">Lorem ipsum dolor sit amet adipis elit
-                            </a>
+                            <img class="img-fluid" src="{{post.header_image.url}}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                            <a href="{% url 'detail' post.slug %}" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0"> {{ post.intro}}</a>
                         </div>
+                        {% endfor %}
                         <div class="d-flex rounded overflow-hidden mb-3">
                             <img class="img-fluid" src="img/blog-2.jpg" style="width: 100px; height: 100px; object-fit: cover;" alt="">
                             <a href="" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0">Lorem ipsum dolor sit amet adipis elit
@@ -208,7 +210,7 @@
                     <!-- Image End -->
     
                     <!-- Tags Start -->
-                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <!-- <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="mb-0">Tag Cloud</h3>
                         </div>
@@ -226,7 +228,7 @@
                             <a href="" class="btn btn-light m-1">Writing</a>
                             <a href="" class="btn btn-light m-1">Consulting</a>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Tags End -->
     
                     <!-- Plain Text Start -->

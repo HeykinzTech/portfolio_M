@@ -7,7 +7,7 @@ urlpatterns = [
     path("search/",views.search,name="search"),
     path("",views.index, name="index"),
     
-    path("home",views.index, name="home"),
+    path("home/",views.index, name="home"),
     path("about/",views.about, name="about"),
 
     path("team/",views.team, name="team"),
@@ -19,6 +19,7 @@ urlpatterns = [
 
     path("story/", views.story, name="story"),
     path("career/", views.career, name="career"),
+    path("price/", views.price, name="price"),
     
     path("detail/<slug:slug>/",views.detail, name="detail"),
     path("feature/",views.feature, name="feature"),

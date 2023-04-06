@@ -10,10 +10,12 @@ def index(request):
     post = Post.objects.all()
     slice = post[:3]
     testimonial = Testimonial.objects.all()
-    return render(request,"myapp/index.html",{'posts': slice,'testimonials':testimonial})
+    team = Member.objects.all()[:3]
+    return render(request,"myapp/index.html",{'posts': slice,'testimonials':testimonial,'teams': team})
 
 def about(request):
-    return render(request,"myapp/about.html")
+    team = Member.objects.all()[:3]
+    return render(request,"myapp/about.html",{'teams' : team})
 
 def contact(request):
     if request.method == "POST":
@@ -45,12 +47,12 @@ def service(request):
     return render(request,"myapp/service.html")
 
 def team(request):
-    member = Member.objects.all()
+    member = Member.objects.all()[:3]
     return render(request,"myapp/team.html",{'members': member})
 
 def testimonial(request):
     testimonial = Testimonial.objects.all()
-    return render(request,"myapp/testimonial.html",{'testimonial': testimonial})
+    return render(request,"myapp/testimonial.html",{'testimonials': testimonial})
 
 def blog(request):
     post = Post.objects.all()
@@ -67,6 +69,7 @@ def price(request):
     return render(request,"myapp/price.html")
 
 def detail(request,slug):
+    recent = Post.objects.all()[:5]
     post = Post.objects.get(slug=slug)
     if request.method == "POST":
        comment = Comment()
@@ -76,7 +79,7 @@ def detail(request,slug):
        comment.post = post
        comment.save()
        return redirect('detail',slug= slug)
-    return render(request,"myapp/detail.html" ,{"post":post})
+    return render(request,"myapp/detail.html" ,{"recent_posts " :recent ,"post":post})
 
 
 def search(request):
