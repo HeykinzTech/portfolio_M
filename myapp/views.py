@@ -28,23 +28,24 @@ def contact(request):
         # print(message_name,message_email,message)
         # send email
         if message_subject and message and message_email:
-            # try:
+            try:
                 send_mail(
                 message_subject,
                  message,
                  message_email,
                 ['jahsconnection@gmail.com','adekunleakinwale2018@gmail.com'],
                 fail_silently=False)
-                return redirect('contact')
-            # except BadHeaderError:
-                # return  HttpResponse("Invalid header found")
-            # return redirect('/contact/thanks/')
+                return redirect('contact/')
+            except BadHeaderError:
+                return  HttpResponse("Invalid header found")
+            
         else:
             return HttpResponse('Make sure all fields are entered and valid.')
     return render(request,"myapp/contact.html")
 
 def service(request):
-    return render(request,"myapp/service.html")
+    testimonial = Testimonial.objects.all()
+    return render(request,"myapp/service.html",{"testimonials" : testimonial})
 
 def team(request):
     member = Member.objects.all()[:3]

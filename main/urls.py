@@ -10,7 +10,7 @@ from django.urls import path,include
 
 sitemaps = {'Category':CategorySitemap,'Post':PostSitemap}
 urlpatterns = [
-    path('sitemap.xml',sitemap,{'sitemap': sitemaps}),
+    path('sitemap.xml/',sitemap,{'sitemap': sitemaps}),
     path('admin/', admin.site.urls),
     path("",include('myapp.urls')),
 ] +  static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
