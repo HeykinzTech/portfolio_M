@@ -1,6 +1,22 @@
 from django.contrib import admin
-from .models import Post,Category,Comment,Member,Testimonial
+from .models import Post,Category,Message,Comment,Member,Testimonial,Contact
 # Register your models here.
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ["name","email","subject","body"]
+    list_filter = ["created_at","name"]
+    search_fields = ["name","email","subject"]
+
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ["name","email","service","message"]
+    list_filter = ["created_at","name","email"]
+    search_fields = ["name","email","subject"]
+
+
 
 
 @admin.register(Post)

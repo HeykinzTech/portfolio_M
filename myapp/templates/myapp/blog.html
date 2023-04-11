@@ -9,7 +9,7 @@
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
         <a href="{% url 'home' %}" class="navbar-brand p-0">
-            <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>ORMD DATALAB</h1>
+            <h1 class="m-0">ORMD DATALABS</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
@@ -81,7 +81,7 @@
                                         <small><i class="far fa-calendar-alt text-primary me-2"></i>{{ post.created_at|date:"d M Y"}}</small>
                                     </div>
                                     <h4 class="mb-3">{{ post.title}}</h4>
-                                    <p>{{ post.intro }}</p>
+                                    <p>{{ post.intro }}...</p>
                                     <a class="text-uppercase" href="{% url 'detail' post.slug %}">Read More <i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -89,8 +89,7 @@
                         {% endfor %}
 
 
-                            <!-- to be delete very soon -->
-                       
+                           
                               
                         <div class="col-12 wow slideInUp" data-wow-delay="0.1s">
                             <nav aria-label="Page navigation">
@@ -129,7 +128,7 @@
                     <!-- Search Form End -->
     
                     <!-- Category Start -->
-                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <!-- <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="mb-0">Categories</h3>
                         </div>
@@ -140,11 +139,11 @@
                             <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Keyword Research</a>
                             <a class="h5 fw-semi-bold bg-light rounded py-2 px-3 mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Email Marketing</a>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Category End -->
     
                     <!-- Recent Post Start -->
-                    <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+                    <!-- <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
                         <div class="section-title section-title-sm position-relative pb-3 mb-4">
                             <h3 class="mb-0">Recent Post</h3>
                         </div>
@@ -178,7 +177,7 @@
                             <a href="" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0">Lorem ipsum dolor sit amet adipis elit
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Recent Post End -->
     
                     <!-- Image Start -->
@@ -215,8 +214,8 @@
                             <h3 class="mb-0">Plain Text</h3>
                         </div>
                         <div class="bg-light text-center" style="padding: 30px;">
-                            <p>Vero sea et accusam justo dolor accusam lorem consetetur, dolores sit amet sit dolor clita kasd justo, diam accusam no sea ut tempor magna takimata, amet sit et diam dolor ipsum amet diam</p>
-                            <a href="" class="btn btn-primary py-2 px-4">Read More</a>
+                            <p>ORMD DATALABS is a company which specializes in building Artificail Intelligence models and deploy to solutions. the other service they do is mobile development..</p>
+                            <a href="{% url 'about' %}" class="btn btn-primary py-2 px-4">Read More</a>
                         </div>
                     </div>
                     <!-- Plain Text End -->

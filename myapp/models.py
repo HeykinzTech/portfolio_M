@@ -95,3 +95,31 @@ class Testimonial(models.Model):
         return self.client_name 
     class Meta:
         ordering = ("-created_at",)
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    body = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+
+    def __str__(self) -> str:
+        return self.email
+
+    class Meta:
+        ordering = ("-created_at",)
+
+class Message(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    service = models.CharField(max_length=255)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.name} -> {self.service}"
+        
+    class Meta:
+        ordering = ("-created_at",)
